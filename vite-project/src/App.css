@@ -1,0 +1,41 @@
+/* App.css */
+body {
+  background-color: #000; /* black background for neon effect */
+  color: #0f0; /* basic neon green text */
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #39ff14;
+  text-shadow:
+    0 0 5px #39ff14,
+    0 0 10px #39ff14,
+    0 0 20px #39ff14,
+    0 0 40px #0f0,
+    0 0 80px #0f0;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.5rem;
+  color: #0f0;
+  text-shadow:
+    0 0 3px #0f0,
+    0 0 10px #0f0;
+  font-style: italic;
+}
+label {
+  font-size: 1.5rem;
+  color: #0f0;
+  text-shadow:
+    0 0 3px #0f0,
+    0 0 10px #0f0;
+  font-style: italic;
+}
