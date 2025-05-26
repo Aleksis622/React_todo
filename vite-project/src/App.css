@@ -1,4 +1,4 @@
-/* App.css */
+/* Global Styles */
 body {
   background-color: #000; /* black background for neon effect */
   color: #0f0; /* basic neon green text */
@@ -9,8 +9,10 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
+  text-align: center;
 }
 
+/* Header Styles */
 h1 {
   font-size: 4rem;
   color: #39ff14;
@@ -20,22 +22,103 @@ h1 {
     0 0 20px #39ff14,
     0 0 40px #0f0,
     0 0 80px #0f0;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
-p {
-  font-size: 1.5rem;
-  color: #0f0;
-  text-shadow:
-    0 0 3px #0f0,
-    0 0 10px #0f0;
-  font-style: italic;
+/* Main To-Do List Container */
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7); /* Slight transparency */
+  border-radius: 8px;
+  box-shadow: 0 0 20px 4px #39ff14; /* Neon glow for the entire container */
+  backdrop-filter: blur(10px);
+  animation: neonGlow 1.5s ease-in-out infinite alternate; /* Neon glow animation */
 }
-label {
-  font-size: 1.5rem;
+
+/* Neon Glow Animation for the Container */
+@keyframes neonGlow {
+  0% {
+    box-shadow: 0 0 15px 2px #39ff14, 0 0 30px 5px #39ff14;
+  }
+  100% {
+    box-shadow: 0 0 30px 8px #39ff14, 0 0 50px 15px #39ff14;
+  }
+}
+
+/* To-Do Item List Styles */
+.todo-list {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Individual To-Do Item */
+.todo-item {
+  background-color: rgba(0, 255, 0, 0.1); /* Light neon green background */
   color: #0f0;
-  text-shadow:
-    0 0 3px #0f0,
-    0 0 10px #0f0;
-  font-style: italic;
+  border: 2px solid #0f0;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect for Todo Items */
+.todo-item:hover {
+  background-color: rgba(0, 255, 0, 0.2); /* More intense green on hover */
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #39ff14;
+}
+
+/* Styling for Completed Tasks */
+.todo-item.completed {
+  text-decoration: line-through;
+  background-color: rgba(0, 255, 0, 0.3); /* Dull green background for completed tasks */
+  color: #555; /* Muted text for completed tasks */
+}
+
+/* Checkbox styles */
+.todo-item input[type="checkbox"] {
+  accent-color: #39ff14; /* Neon green checkbox */
+  transform: scale(1.5);
+  margin-right: 15px;
+}
+
+/* Add spacing and margins for the layout */
+h1 + h1 {
+  margin-top: 0.5rem;
+  font-size: 2rem;
+  color: #fff;
+}
+/* Neon Button Styles */
+.navigate-button {
+  background-color: transparent;
+  color: #39ff14;
+  border: 2px solid #39ff14;
+  padding: 20px 30px;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.navigate-button:hover {
+  background-color: #39ff14;
+  color: #000;
+  box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+  transform: scale(1.1);
+}
+
+.navigate-button:focus {
+  outline: none;
 }

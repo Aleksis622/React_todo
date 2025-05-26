@@ -1,14 +1,16 @@
-import { useState } from 'react'
-function ToDo({ task, completed }) {
-    const [check, setCheck] = useState(completed);
-    return (
-        <input
-        type="checkbox"
-        checked={check}
-        onChange={() => setCheck(!check)}
+import React from 'react';
+
+function ToDo({ id, task, completed, toggleCompletion }) {
+  return (
+    <div className={`todo-item ${completed ? 'completed' : ''}`}>
+      <input 
+        type="checkbox" 
+        checked={completed} 
+        onChange={() => toggleCompletion(id)} 
       />
-    );
-  }
-  
-  export default ToDo
-  
+      <span>{task}</span>
+    </div>
+  );
+}
+
+export default ToDo;
