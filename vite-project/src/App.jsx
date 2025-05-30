@@ -12,7 +12,7 @@ function App() {
   ]);
 
   const toggleCompletion = (id) => {
-    setTodos(todos.map(todo => 
+    setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ));
   };
@@ -21,7 +21,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          {/* Define the home route */}
+        <Route path="/DiariesList" element={<Diary />} />
           <Route
             path="/"
             element={
@@ -34,21 +34,18 @@ function App() {
                     ))}
                   </div>
                 </div>
-                <>
-                <Diary />
-                </>
-                {/* Button linking to the next page */}
-                <Link to="/DiariesList">
+                {/* Button linking to the diary page */}
+                <Link to="/diary">
                   <button className="navigate-button">Uz dienagrāmatu!</button>
                 </Link>
               </>
             }
           />
 
-          {/* Define the next page route */}
+          {/* Diary route */}
           <Route
-            path="/DiariesList.jsx"
-            element={<h1>This is the Next Page!</h1>}
+            path="/diary"
+            element={<Diary />}
           />
         </Routes>
       </div>
@@ -57,3 +54,4 @@ function App() {
 }
 
 export default App;
+

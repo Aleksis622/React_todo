@@ -1,0 +1,85 @@
+/* DiariesList.css */
+
+/* Container for the diary entries */
+.diary-list {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Tumšs caurspīdīgs fons */
+    border-radius: 10px;
+    box-shadow: 0 0 25px 6px #39ff14; /* Neon zaļais gaismas efekts */
+    backdrop-filter: blur(8px);
+    animation: neonPulse 1.8s ease-in-out infinite alternate;
+  }
+  
+  /* Animācija containers */
+  @keyframes neonPulse {
+    0% {
+      box-shadow: 0 0 20px 4px #39ff14, 0 0 40px 10px #39ff14;
+    }
+    100% {
+      box-shadow: 0 0 35px 8px #39ff14, 0 0 60px 15px #39ff14;
+    }
+  }
+  
+  /* Title of the diary section */
+  .diary-list h2 {
+    font-size: 3rem;
+    color: #39ff14;
+    text-shadow:
+      0 0 5px #39ff14,
+      0 0 10px #39ff14,
+      0 0 20px #0f0,
+      0 0 40px #0f0;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  /* Single diary entry container */
+  .diary-entry {
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 2px solid #0f0;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #39ff14;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for diary entries */
+  .diary-entry:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 4px #39ff14, 0 0 40px 10px #39ff14;
+  }
+  
+  /* Diary entry title */
+  .diary-entry h3 {
+    margin: 0;
+    color: #39ff14;
+    font-size: 1.8rem;
+    text-shadow:
+      0 0 5px #39ff14,
+      0 0 10px #39ff14;
+  }
+  
+  /* Diary entry date */
+  .diary-entry p em {
+    display: block;
+    color: #0f0;
+    font-style: normal;
+    font-size: 1rem;
+    margin: 8px 0 12px;
+    text-shadow: 0 0 6px #0f0;
+  }
+  
+  /* Diary entry body text */
+  .diary-entry p:not(:first-child) {
+    font-size: 1.2rem;
+    color: #0f0;
+    line-height: 1.5;
+    text-align: left;
+    white-space: pre-wrap;
+    text-shadow: 0 0 5px #0f0;
+  }
+  
