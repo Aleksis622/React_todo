@@ -5,23 +5,29 @@ import ToDo from './ToDo';
 import DiariesList from './DiariesList';
 
 function App() {
-  const [todos, setTodos] = useState([
-    { id: 1, task: "Iemācīties React", completed: false },
-    { id: 2, task: "Iemācīties Laravel", completed: true },
-    { id: 3, task: "Nopirkt pienu", completed: false },
+  const [pets, setPets] = useState([
+    { id: 1, species: "Kaķis", name: "Muris" },
+    { id: 1, species: "Suns", name: "Duksis" },
   ]);
 
-  const toggleCompletion = (id) => {
-    setTodos(todos.map(todo =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    ));
-  };
+  setTodos([...todos, newTodo]);
+  setNewTask("");
 
+  function handleAdd(event) {
+    event.preventDefault();
+    console.log("Added");
+
+    const newTodo = {
+      id: crypto.randomUUID(),
+      task: newTask,
+      completed: false,
+    };
+  }
   return (
     <Router>
       <div className="App">
         <Routes>
-        <Route path="/DiariesList" element={<DiariesList />} />
+        <Route path="/diariesList" element={<DiariesList />} />
         
           <Route
             path="/"
@@ -33,6 +39,13 @@ function App() {
                     {todos.map((todo) => (
                       <ToDo key={todo.id} {...todo} toggleCompletion={toggleCompletion} />
                     ))}
+                    <form onSubmit={handleAdd}>
+                    <input
+                      value={newTask}
+                      onChange={(event) => setNewTask(event.target.value)}
+                      />
+                      <button>Submit</button>
+                      </form>
                   </div>
                 </div>
                 {/* Button linking to the diary page */}
@@ -42,10 +55,7 @@ function App() {
               </>
             }
           />
-           <Route
-            path="/diariesList"
-            element={<DiariesList />}
-          />
+          
 
         </Routes>
       </div>
