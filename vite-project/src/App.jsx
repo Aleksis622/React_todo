@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import ToDo from './ToDo';
-import Diary from './DiariesList';
+import DiariesList from './DiariesList';
 
 function App() {
   const [todos, setTodos] = useState([
@@ -21,7 +21,8 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-        <Route path="/DiariesList" element={<Diary />} />
+        <Route path="/DiariesList" element={<DiariesList />} />
+        
           <Route
             path="/"
             element={
@@ -35,18 +36,17 @@ function App() {
                   </div>
                 </div>
                 {/* Button linking to the diary page */}
-                <Link to="/diary">
+                <Link to="/diariesList">
                   <button className="navigate-button">Uz dienagrāmatu!</button>
                 </Link>
               </>
             }
           />
-
-          {/* Diary route */}
-          <Route
-            path="/diary"
-            element={<Diary />}
+           <Route
+            path="/diariesList"
+            element={<DiariesList />}
           />
+
         </Routes>
       </div>
     </Router>

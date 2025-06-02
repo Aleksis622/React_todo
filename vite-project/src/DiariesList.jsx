@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './DiariesList.css';
-function Diary(){
+import Diary from "./Diary.jsx";
+function DiariesList(){
 
 
-const [Diaries] = useState([
+const [diaries, setDiaries] = useState([
     { id: 1, 
       title:"Aiziet ar draugiem nopeldēties",
       body: "Biju jūrā līdz 15:00",
@@ -30,13 +31,12 @@ const [Diaries] = useState([
   return (
     <div className="diary-list">
       <h2>Dienasgrāmatas ieraksti</h2>
-      {Diaries.map(({ id, title, body, date }) => (
-        <div key={id} className="diary-entry">
-          <h3>{title}</h3>
-          <p><em>{date}</em></p>
-          <p>{body}</p>
-        </div>
-      ))}
+      {diaries.map(({ id, title, body, date }) => (
+  < Diary key={id} title ={title} body={body} date={date} />))}
+
+    
+        
+     
     </div>
   );
 }
@@ -52,4 +52,4 @@ const [Diaries] = useState([
 
 
 
-export default Diary
+export default DiariesList
