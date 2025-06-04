@@ -5,24 +5,37 @@ import ToDo from './ToDo';
 import DiariesList from './DiariesList';
 
 function App() {
-  const [pets, setPets] = useState([
-    { id: 1, species: "Kaķis", name: "Muris" },
-    { id: 1, species: "Suns", name: "Duksis" },
-  ]);
+  const [todos,setTodos] = useState([
+    { task: "Iemācīties React", completed: false },
+    { task: "Iemācīties Laravel", completed: true },
+    { task: "Nopirkt pienu", completed: false },
 
-  setTodos([...todos, newTodo]);
-  setNewTask("");
-
+    function handleToggle(id) {
+      setTodos((prevTodos) =>
+        prevTodos.map((todo) =>
+          todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        )
+      );
+    }
+  ]); 
   function handleAdd(event) {
-    event.preventDefault();
-    console.log("Added");
-
-    const newTodo = {
+      event.preventDefault();
+      console.log("Added");
+      const newTodo = {
       id: crypto.randomUUID(),
       task: newTask,
       completed: false,
-    };
-  }
+      }
+      setTodos([...todos, newTodo]);  
+      setNewTask("");
+      function handleDelete(id) {
+        setTodos((prevTodos) => prevTodos.filter(todo => todo.id !== id));
+      };
+    }
+ 
+  
+
+
   return (
     <Router>
       <div className="App">
@@ -39,13 +52,16 @@ function App() {
                     {todos.map((todo) => (
                       <ToDo key={todo.id} {...todo} toggleCompletion={toggleCompletion} />
                     ))}
-                    <form onSubmit={handleAdd}>
-                    <input
+                    
+                    <label input
                       value={newTask}
                       onChange={(event) => setNewTask(event.target.value)}
-                      />
+                      >
+                    <form onSubmit={handleAdd}>
+                    
                       <button>Submit</button>
                       </form>
+                      </label>
                   </div>
                 </div>
                 {/* Button linking to the diary page */}
